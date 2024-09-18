@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Summary</title>
+    <title>Performance Metrics</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h2>Performance Summary</h2>
-        <p>Total Trades: {{ total_trades }}</p>
-        <p>Total Profit/Loss: ${{ total_profit_loss | round(2) }}</p>
+    <div class="container mt-4">
+        <h1>Performance Metrics</h1>
+
+        <!-- Performance Metrics Display -->
+        <div class="mb-4">
+            {{ metrics_html | safe }}
+        </div>
+
+        <!-- Search Form -->
+        <form action="{{ url_for('performance_page', summary_file=summary_file) }}" method="post" class="mb-4">
+            <div class="form-group">
+                <label for="activity_date">Search by Activity Date:</label>
+                <input type="date" class="form-control" id="activity_date" name="activity_date">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <!-- Filtered Trades Table -->
+        <div class="mb-4">
+            {{ trades_table | safe }}
+        </div>
+
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
     </div>
 </body>
 </html>

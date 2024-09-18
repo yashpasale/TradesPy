@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Home - Trading App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/upload">Upload File</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Welcome to your Trade Analyzer</h1>
-        <p>Hi Yash, import your Robinhood CSV file.</p>
-    </main>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div class="container mt-4">
+        <h1>Welcome to the Trading App</h1>
+        
+        <div class="mb-4">
+            <a href="{{ url_for('upload_page') }}" class="btn btn-primary">Upload Trade Data</a>
+            <a href="{{ url_for('cleaned_file_page', summary_file='') }}" class="btn btn-secondary">View Cleaned Data</a>
+        </div>
+        
+        <form action="{{ url_for('delete_files') }}" method="post" class="mb-4">
+            <button type="submit" class="btn btn-danger">Delete All Files</button>
+        </form>
+        
+    </div>
 </body>
 </html>
