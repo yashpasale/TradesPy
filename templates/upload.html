@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/upload">Upload</a>
+    </nav>
+    <h1>Upload a File</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" value="Upload" />
+    </form>
+    <form action="/delete_files" method="post">
+        <input type="submit" value="Delete All Uploaded Files" />
+    </form>
+</body>
+</html>
